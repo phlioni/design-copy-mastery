@@ -3,11 +3,10 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { label: "Como Funciona", href: "#como-funciona" },
+  { label: "Solução", href: "#como-funciona" },
   { label: "Benefícios", href: "#beneficios" },
-  { label: "Parceria APRA", href: "#parceria" },
-  { label: "Planos", href: "#planos" },
-  { label: "Dúvidas", href: "#duvidas" },
+  { label: "Preços", href: "#planos" },
+  { label: "Proposta", href: "#fechamento" },
 ];
 
 const Header = () => {
@@ -19,11 +18,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <span className="text-xl font-heading font-bold text-foreground">
+            <span className="text-xl font-heading font-bold text-primary">
               mosten
             </span>
-            <span className="text-xl font-heading font-bold text-primary">
-              ViSia
+            <span className="text-xs font-medium border border-border rounded px-2 py-0.5 text-muted-foreground">
+              Para APRA
             </span>
           </a>
 
@@ -33,7 +32,7 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
                 {item.label}
               </a>
@@ -43,7 +42,7 @@ const Header = () => {
           {/* CTA */}
           <a
             href="#fechamento"
-            className="hidden lg:inline-flex gradient-cta text-accent-foreground px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
+            className="hidden lg:inline-flex bg-foreground text-primary-foreground px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
           >
             Fale Conosco
           </a>
@@ -74,7 +73,7 @@ const Header = () => {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary py-2 transition-colors"
+                  className="text-sm font-medium text-foreground hover:text-primary py-2 transition-colors"
                 >
                   {item.label}
                 </a>
@@ -82,7 +81,7 @@ const Header = () => {
               <a
                 href="#fechamento"
                 onClick={() => setIsOpen(false)}
-                className="gradient-cta text-accent-foreground px-6 py-2.5 rounded-lg text-sm font-semibold text-center hover:opacity-90 transition-opacity mt-2"
+                className="bg-foreground text-primary-foreground px-6 py-2.5 rounded-lg text-sm font-semibold text-center hover:opacity-90 transition-opacity mt-2"
               >
                 Fale Conosco
               </a>
