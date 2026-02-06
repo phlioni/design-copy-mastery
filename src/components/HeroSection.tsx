@@ -13,7 +13,7 @@ const HeroSection = () => {
       {/* Background image - Plataforma */}
       <div className="absolute inset-0 z-0">
         <img
-          src="public/images/img-hero.png"
+          src="/images/img-hero.png"
           alt="Plataforma ViSia"
           className="w-full h-full object-cover object-center"
           aria-hidden="true"
@@ -95,7 +95,7 @@ const HeroSection = () => {
           {/* rounded-t-full cria o semicírculo */}
           <div className="bg-background rounded-t-full px-10 pt-8 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] flex justify-center items-center">
             <img
-              src="public/images/logo-visia.png"
+              src="/images/logo-visia.png"
               alt="Plataforma ViSia"
               className="w-36 h-auto object-contain"
               aria-hidden="true"

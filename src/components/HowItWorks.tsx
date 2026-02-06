@@ -45,7 +45,7 @@ const HowItWorks = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <img
-              src="public/images/topo.png"
+              src="/images/topo.png"
               alt="Terminal logístico com câmeras de inspeção"
               className="w-full rounded-2xl shadow-xl"
               loading="lazy"

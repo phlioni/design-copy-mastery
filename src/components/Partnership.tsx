@@ -60,7 +60,7 @@ const Partnership = () => {
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 mb-6">
-            <img src="public/images/logo-apra.png" alt="Logo APRA" className="w-52 h-16 object-contain" />
+            <img src="/images/logo-apra.png" alt="Logo APRA" className="w-52 h-16 object-contain" />
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading  text-foreground mb-4">
             A parceria <span className="font-bold">APRA + Mosten</span> entrega condições exclusivas.
