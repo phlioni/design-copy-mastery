@@ -3,7 +3,7 @@ import { Check, Star } from "lucide-react";
 
 const plans = [
   {
-    name: "Standard",
+    name: "Padrão de Mercado",
     price: "R$ 4.000",
     period: "/ mês",
     popular: false,
@@ -15,14 +15,14 @@ const plans = [
       "Acesso completo à plataforma",
       "Suporte 8x5",
     ],
-    cta: "Quero Este Plano",
+    cta: "",
   },
   {
     name: "Associados APRA",
     price: "R$ 2.500,00",
     period: "/ mês",
     popular: true,
-    features: [      
+    features: [
       "Sem limites de vistorias mensais",
       "Implantação Gratuita",
       "Fidelidade de 36 meses",
@@ -64,8 +64,8 @@ const Pricing = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className={`relative rounded-3xl p-8 flex flex-col transition-transform hover:-translate-y-2 ${plan.popular
-                  ? "bg-primary-foreground border-2 border-accent shadow-2xl z-10 scale-105 lg:scale-110"
-                  : "bg-primary-foreground/10 border border-primary-foreground/15 backdrop-blur-sm hover:bg-primary-foreground/15"
+                ? "bg-primary-foreground border-2 border-accent shadow-2xl z-10 scale-105 lg:scale-110"
+                : "bg-primary-foreground/10 border border-primary-foreground/15 backdrop-blur-sm hover:bg-primary-foreground/15"
                 }`}
             >
               {plan.popular && (
@@ -95,8 +95,8 @@ const Pricing = () => {
                 {plan.period && (
                   <span
                     className={`text-sm font-medium ${plan.popular
-                        ? "text-muted-foreground"
-                        : "text-primary-foreground/60"
+                      ? "text-muted-foreground"
+                      : "text-primary-foreground/60"
                       }`}
                   >
                     {plan.period}
@@ -118,8 +118,8 @@ const Pricing = () => {
                     </div>
                     <span
                       className={`text-sm font-medium ${plan.popular
-                          ? "text-foreground/80"
-                          : "text-primary-foreground/80"
+                        ? "text-foreground/80"
+                        : "text-primary-foreground/80"
                         }`}
                     >
                       {feature}
@@ -127,16 +127,7 @@ const Pricing = () => {
                   </li>
                 ))}
               </ul>
-
-              <a
-                href="#fechamento"
-                className={`block text-center py-4 rounded-xl font-bold text-sm transition-all shadow-md ${plan.popular
-                    ? "gradient-cta text-accent-foreground hover:shadow-lg hover:opacity-95"
-                    : "border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-                  }`}
-              >
-                {plan.cta}
-              </a>
+          
             </motion.div>
           ))}
         </div>

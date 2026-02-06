@@ -18,12 +18,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <span className="text-xl font-heading font-bold text-primary">
-              mosten
-            </span>
-            <span className="text-xs font-medium border border-border rounded px-2 py-0.5 text-muted-foreground">
-              Para APRA
-            </span>
+            <div className="inline-flex items-center gap-2">
+            <img src="/images/mosten-logo.png" alt="Logo APRA" className="w-36 h-16 object-contain" />
+
+            <img src="/images/logo-apra.png" alt="Logo APRA" className="w-28 h-16 object-contain" />
+            </div>
           </a>
 
           {/* Desktop Nav */}
