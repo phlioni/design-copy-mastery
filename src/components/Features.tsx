@@ -30,9 +30,9 @@ const features = [
   },
   {
     icon: Building2,
-    title: "Independência Institucional",
+    title: "Compliance e Governança", // Título alterado
     description:
-      "Liberdade total para implementação. Nossa solução não depende de filiações específicas.",
+      "Garanta total aderência às normas regulatórias com processos padronizados e auditáveis, elevando o nível de governança da operação.", // Descrição alterada
   },
   {
     icon: Puzzle,

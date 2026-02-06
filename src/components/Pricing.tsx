@@ -4,47 +4,34 @@ import { Check, Star } from "lucide-react";
 const plans = [
   {
     name: "Standard",
-    price: "R$ 2.300",
+    price: "R$ 4.000",
     period: "/ mês",
     popular: false,
     features: [
       "200 vistorias mensais inclusas",
-      "Implantação: R$ 5.000,00",
+      "Implantação: R$ 7.000,00",
       "Excedente: R$ 7,50 por vistoria",
       "Sem desconto APRA",
       "Acesso completo à plataforma",
+      "Suporte 8x5",
     ],
     cta: "Quero Este Plano",
   },
   {
-    name: "APRA Fidelidade 24",
-    price: "R$ 1.750",
-    period: "/ mês (1º ano)",
+    name: "Associados APRA",
+    price: "R$ 2.500,00",
+    period: "/ mês",
     popular: true,
-    features: [
-      "300 vistorias mensais inclusas",
-      "Implantação: R$ 0,00 (Isento)",
-      "2º ano: R$ 1.900/mês",
-      "Excedente: R$ 7,00 por vistoria",
-      "Fidelidade de 24 meses",
+    features: [      
+      "Sem limites de vistorias mensais",
+      "Implantação Gratuita",
+      "Fidelidade de 36 meses",
       "Melhor condição comercial",
+      "Suporte 24/7",
+
     ],
     cta: "Garantir Oferta APRA",
-  },
-  {
-    name: "APRA Flex 12",
-    price: "R$ 1.900",
-    period: "/ mês",
-    popular: false,
-    features: [
-      "300 vistorias mensais inclusas",
-      "Implantação: R$ 0,00 (Isento)",
-      "Preço fixo de contrato",
-      "Excedente: R$ 7,00 por vistoria",
-      "Fidelidade de 1 ano",
-    ],
-    cta: "Quero Este Plano",
-  },
+  }
 ];
 
 const Pricing = () => {
@@ -68,7 +55,7 @@ const Pricing = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}

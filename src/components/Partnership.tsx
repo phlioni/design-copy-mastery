@@ -35,9 +35,9 @@ const benefits = [
   },
   {
     icon: Globe,
-    title: "Integração Nacional",
+    title: "Gestão Integrada",
     description:
-      "Conecte-se com outros terminais e recintos alfandegados de todo o Brasil através de uma única plataforma.",
+      "Tenha a visibilidade e controle de todas as inspeções em um único lugar.",
   },
   {
     icon: RefreshCw,
