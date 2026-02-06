@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const navItems = [
   { label: "Solução", href: "#como-funciona" },
   { label: "Benefícios", href: "#beneficios" },
-  { label: "Preços", href: "#planos" },
   { label: "Proposta", href: "#fechamento" },
 ];
 
@@ -19,9 +18,9 @@ const Header = () => {
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
             <div className="inline-flex items-center gap-2">
-            <img src="/images/mosten-logo.png" alt="Logo APRA" className="w-36 h-16 object-contain" />
+              <img src="/images/mosten-logo.png" alt="Logo APRA" className="w-36 h-16 object-contain" />
 
-            <img src="/images/logo-apra.png" alt="Logo APRA" className="w-28 h-16 object-contain" />
+              <img src="/images/logo-apra.png" alt="Logo APRA" className="w-28 h-16 object-contain" />
             </div>
           </a>
 
