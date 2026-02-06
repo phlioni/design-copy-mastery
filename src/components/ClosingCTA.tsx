@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Check, Phone, Mail, Clock, Send, ArrowRight } from "lucide-react";
+import { Check, Phone, Mail, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -30,23 +30,50 @@ const ClosingCTA = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulação de envio
-    setTimeout(() => {
-      console.log("Formulário enviado para: apra@mosten.com", formData);
-      toast.success("Solicitação enviada com sucesso!", {
-        description: "Nossa equipe entrará em contato em breve.",
+    try {
+      // Envia os dados para a API Serverless (api/send-email.js)
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (response.ok) {
+        toast.success("Solicitação enviada com sucesso!", {
+          description: "Nossa equipe entrará em contato em breve.",
+        });
+        // Limpa o formulário apenas se deu certo
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          recintos: "",
+        });
+      } else {
+        throw new Error("Erro no envio");
+      }
+    } catch (error) {
+      console.error("Erro ao enviar:", error);
+      toast.error("Erro ao enviar solicitação.", {
+        description: "Por favor, tente novamente ou contate via telefone.",
+      });
+    } finally {
       setIsSubmitting(false);
-      setFormData({ name: "", email: "", phone: "", company: "" });
-    }, 1500);
+    }
   };
 
   return (
-    <section id="fechamento" className="gradient-closing py-16 lg:py-24 relative overflow-hidden">
+    <section
+      id="fechamento"
+      className="gradient-closing py-16 lg:py-24 relative overflow-hidden"
+    >
       {/* Elementos decorativos de fundo */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <div className="absolute top-1/4 left-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
@@ -67,13 +94,14 @@ const ClosingCTA = () => {
             operação?
           </h2>
           <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-            Preencha o formulário abaixo para garantir as condições exclusivas APRA.
+            Preencha o formulário abaixo para garantir as condições exclusivas
+            APRA.
             <br className="hidden md:block" />
             Nossa equipe entrará em contato para finalizar sua adesão.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-1 gap-8 lg:gap-12 max-w-2xl mx-auto items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto items-start">
           {/* Coluna da Esquerda: Benefícios e Urgência */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -82,7 +110,7 @@ const ClosingCTA = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col h-full justify-between"
           >
-            {/* <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-xl">
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-xl">
               <h3 className="font-heading font-bold text-primary-foreground text-xl mb-6 flex items-center gap-2">
                 <span className="bg-accent/20 p-2 rounded-lg">
                   <Check className="w-5 h-5 text-accent" />
@@ -112,20 +140,24 @@ const ClosingCTA = () => {
                     className="flex items-center gap-3 hover:text-white transition-colors bg-white/5 p-3 rounded-xl hover:bg-white/10"
                   >
                     <Phone className="w-5 h-5 text-accent" />
-                    <span className="font-semibold text-base">(11) 4000-3000</span>
+                    <span className="font-semibold text-base">
+                      (11) 4000-3000
+                    </span>
                   </a>
                   <a
                     href="mailto:apra@mosten.com"
                     className="flex items-center gap-3 hover:text-white transition-colors bg-white/5 p-3 rounded-xl hover:bg-white/10"
                   >
                     <Mail className="w-5 h-5 text-accent" />
-                    <span className="font-semibold text-base">apra@mosten.com</span>
+                    <span className="font-semibold text-base">
+                      apra@mosten.com
+                    </span>
                   </a>
                 </div>
               </div>
-            </div> */}
+            </div>
 
-            {/* Urgência
+            {/* Urgência */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -139,10 +171,11 @@ const ClosingCTA = () => {
                   Condições especiais válidas até 28/02/2026.
                 </p>
                 <p className="text-primary-foreground/60 text-xs mt-1">
-                  Associados APRA têm prioridade absoluta na fila de implementação.
+                  Associados APRA têm prioridade absoluta na fila de
+                  implementação.
                 </p>
               </div>
-            </motion.div> */}
+            </motion.div>
           </motion.div>
 
           {/* Coluna da Direita: Formulário */}
@@ -157,7 +190,9 @@ const ClosingCTA = () => {
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary to-accent" />
 
             <div className="mb-8">
-              <h3 className="text-2xl font-bold text-foreground mb-2">Fale com um especialista</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-2">
+                Fale com um especialista
+              </h3>
               <p className="text-muted-foreground text-sm">
                 Preencha seus dados e receba o contato do nosso time comercial.
               </p>
@@ -165,7 +200,9 @@ const ClosingCTA = () => {
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-foreground/80">Nome Completo</Label>
+                <Label htmlFor="name" className="text-foreground/80">
+                  Nome Completo
+                </Label>
                 <Input
                   id="name"
                   name="name"
@@ -177,13 +214,11 @@ const ClosingCTA = () => {
                 />
               </div>
 
-              <div className="space-y-2">
-
-              </div>
-
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-foreground/80">E-mail Corporativo</Label>
+                  <Label htmlFor="email" className="text-foreground/80">
+                    E-mail Corporativo
+                  </Label>
                   <Input
                     id="email"
                     name="email"
@@ -196,7 +231,9 @@ const ClosingCTA = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-foreground/80">Telefone</Label>
+                  <Label htmlFor="phone" className="text-foreground/80">
+                    Telefone
+                  </Label>
                   <Input
                     id="phone"
                     name="phone"
@@ -210,10 +247,11 @@ const ClosingCTA = () => {
                 </div>
               </div>
 
-
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="company" className="text-foreground/80">Empresa</Label>
+                  <Label htmlFor="company" className="text-foreground/80">
+                    Empresa
+                  </Label>
                   <Input
                     id="company"
                     name="company"
@@ -225,14 +263,16 @@ const ClosingCTA = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="rencintos" className="text-foreground/80">Telefone</Label>
+                  <Label htmlFor="recintos" className="text-foreground/80">
+                    Qtd. Recintos
+                  </Label>
                   <Input
-                    id="rencintos"
-                    name="rencintos"
+                    id="recintos"
+                    name="recintos" // Corrigido de "rencintos"
                     type="number"
                     placeholder="1"
                     required
-                    value={formData.rencintos}
+                    value={formData.recintos}
                     onChange={handleChange}
                     className="bg-background border-input focus:border-primary h-12"
                   />
