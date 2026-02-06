@@ -25,7 +25,7 @@ export default async function handler(req, res) {
 
   try {
     await transporter.sendMail({
-      from: `"Site ViSia" <apra@mosten.com>`,
+      from: `"Site ViSia" <pedro.diniz@mosten.com>`,
       to: "roberto.claro@mosten.com, pedro.diniz@mosten.com",
       replyTo: email,
       subject: `🚀 Nova Lead ViSia: ${company}`, // Adicionei um emoji para destaque
