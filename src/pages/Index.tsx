@@ -21,7 +21,7 @@ const Index = () => {
         <ApraBanner />
         <Partnership />
         <Features />
-        <Pricing />
+        {/* <Pricing /> */}
         <ClosingCTA />
         <FAQ />
       </main>

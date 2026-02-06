@@ -21,6 +21,7 @@ const ClosingCTA = () => {
     email: "",
     phone: "",
     company: "",
+    recintos: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -72,7 +73,7 @@ const ClosingCTA = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto items-start">
+        <div className="grid lg:grid-cols-1 gap-8 lg:gap-12 max-w-2xl mx-auto items-start">
           {/* Coluna da Esquerda: Benefícios e Urgência */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -81,7 +82,7 @@ const ClosingCTA = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col h-full justify-between"
           >
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-xl">
+            {/* <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-xl">
               <h3 className="font-heading font-bold text-primary-foreground text-xl mb-6 flex items-center gap-2">
                 <span className="bg-accent/20 p-2 rounded-lg">
                   <Check className="w-5 h-5 text-accent" />
@@ -122,9 +123,9 @@ const ClosingCTA = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            {/* Urgência */}
+            {/* Urgência
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -141,7 +142,7 @@ const ClosingCTA = () => {
                   Associados APRA têm prioridade absoluta na fila de implementação.
                 </p>
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           {/* Coluna da Direita: Formulário */}
@@ -177,18 +178,38 @@ const ClosingCTA = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-foreground/80">E-mail Corporativo</Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="voce@empresa.com.br"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="bg-background border-input focus:border-primary h-12"
-                />
+
               </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-foreground/80">E-mail Corporativo</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="voce@empresa.com.br"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="bg-background border-input focus:border-primary h-12"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone" className="text-foreground/80">Telefone</Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="(11) 99999-9999"
+                    required
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="bg-background border-input focus:border-primary h-12"
+                  />
+                </div>
+              </div>
+
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
@@ -204,14 +225,14 @@ const ClosingCTA = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-foreground/80">Telefone</Label>
+                  <Label htmlFor="rencintos" className="text-foreground/80">Telefone</Label>
                   <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    placeholder="(11) 99999-9999"
+                    id="rencintos"
+                    name="rencintos"
+                    type="number"
+                    placeholder="1"
                     required
-                    value={formData.phone}
+                    value={formData.rencintos}
                     onChange={handleChange}
                     className="bg-background border-input focus:border-primary h-12"
                   />
