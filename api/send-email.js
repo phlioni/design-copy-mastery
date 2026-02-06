@@ -53,7 +53,7 @@ export default async function handler(req, res) {
           <div class="container" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
             
             <div style="background-color: #0f172a; padding: 24px; text-align: center;">
-              <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Nova Solicitação APRA/ViSia</h1>
+              <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Nova Solicitação ViSia - APRA/Mosten</h1>
             </div>
 
             <div style="padding: 32px;">
