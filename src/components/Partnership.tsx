@@ -60,12 +60,10 @@ const Partnership = () => {
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 mb-6">
-            <span className="font-heading font-extrabold text-2xl text-primary">
-              APRA
-            </span>
+            <img src="public/images/logo-apra.png" alt="Logo APRA" className="w-52 h-16 object-contain" />
           </div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground mb-4">
-            A parceria <span className="text-gradient-purple">APRA + Mosten</span> entrega condições exclusivas.
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading  text-foreground mb-4">
+            A parceria <span className="font-bold">APRA + Mosten</span> entrega condições exclusivas.
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Mais do que tecnologia, essa parceria fortalece a cadeia logística e
@@ -111,7 +109,7 @@ const Partnership = () => {
           >
             CONFERIR OFERTA
           </a>
-          <p className="text-muted-foreground text-sm mt-4">
+          <p className="text-muted-foreground text-xl mt-4">
             Fale com um especialista e garanta condições especiais por tempo
             limitado.
           </p>

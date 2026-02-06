@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import howItWorksImg from "@/assets/how-it-works.jpg";
 
 const HowItWorks = () => {
   return (
@@ -20,19 +19,19 @@ const HowItWorks = () => {
               Na prática,{" "}
               <span className="text-gradient-purple">funciona assim:</span>
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">
+            <p className="text-muted-foreground leading-relaxed mb-4 text-base md:text-lg">
               A inspeção é digitalizada com câmeras posicionadas na zona de
               operação. Pela plataforma web, fiscais e gestores agendam a
-              conferência e acompanham o operador de campo em tempo real,
+              conferência e acompanham o operador <span className="text-foreground font-medium">ao vivo</span>,
               seguindo um fluxo digital orientado.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-8">
+            <p className="text-muted-foreground leading-relaxed mb-8 text-base md:text-lg">
               Durante a sessão, são registradas evidências visuais e logs em
               tempo real, garantindo rastreabilidade e auditoria completa.
             </p>
             <a
               href="#fechamento"
-              className="inline-flex gradient-cta text-accent-foreground px-8 py-3.5 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity"
+              className="inline-flex gradient-cta text-accent-foreground px-8 py-3.5 rounded-3xl text-sm font-bold hover:opacity-90 transition-opacity shadow-lg"
             >
               AGENDAR PROPOSTA
             </a>
@@ -46,7 +45,7 @@ const HowItWorks = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <img
-              src={howItWorksImg}
+              src="public/images/topo.png"
               alt="Terminal logístico com câmeras de inspeção"
               className="w-full rounded-2xl shadow-xl"
               loading="lazy"

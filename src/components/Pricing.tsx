@@ -3,53 +3,47 @@ import { Check, Star } from "lucide-react";
 
 const plans = [
   {
-    name: "Essencial",
-    price: "R$ 1.990",
+    name: "Standard",
+    price: "R$ 2.300",
     period: "/ mês",
     popular: false,
     features: [
-      "Até 5 câmeras simultâneas",
-      "1 usuário administrador",
-      "5 usuários operadores",
-      "Armazenamento 30 dias",
-      "Suporte por email",
-      "Relatórios básicos",
+      "200 vistorias mensais inclusas",
+      "Implantação: R$ 5.000,00",
+      "Excedente: R$ 7,50 por vistoria",
+      "Sem desconto APRA",
+      "Acesso completo à plataforma",
     ],
     cta: "Quero Este Plano",
   },
   {
-    name: "Profissional",
-    price: "R$ 4.490",
-    period: "/ mês",
+    name: "APRA Fidelidade 24",
+    price: "R$ 1.750",
+    period: "/ mês (1º ano)",
     popular: true,
     features: [
-      "Até 15 câmeras simultâneas",
-      "3 usuários administradores",
-      "Usuários operadores ilimitados",
-      "Armazenamento 90 dias",
-      "Suporte prioritário",
-      "Relatórios avançados",
-      "Integrações",
+      "300 vistorias mensais inclusas",
+      "Implantação: R$ 0,00 (Isento)",
+      "2º ano: R$ 1.900/mês",
+      "Excedente: R$ 7,00 por vistoria",
+      "Fidelidade de 24 meses",
+      "Melhor condição comercial",
     ],
-    cta: "Quero Este Plano",
+    cta: "Garantir Oferta APRA",
   },
   {
-    name: "Enterprise",
-    price: "Sob consulta",
-    period: "",
+    name: "APRA Flex 12",
+    price: "R$ 1.900",
+    period: "/ mês",
     popular: false,
     features: [
-      "Câmeras ilimitadas",
-      "Administradores ilimitados",
-      "Usuários ilimitados",
-      "Armazenamento personalizado",
-      "Suporte dedicado",
-      "Customizações",
-      "API completa",
-      "Multi-terminal",
-      "SLA garantido",
+      "300 vistorias mensais inclusas",
+      "Implantação: R$ 0,00 (Isento)",
+      "Preço fixo de contrato",
+      "Excedente: R$ 7,00 por vistoria",
+      "Fidelidade de 1 ano",
     ],
-    cta: "Falar com Consultor",
+    cta: "Quero Este Plano",
   },
 ];
 
@@ -62,19 +56,19 @@ const Pricing = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-primary-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-6">
             Planos com condições especiais{" "}
             <span className="text-accent">APRA</span>
           </h2>
-          <p className="text-primary-foreground/60 max-w-xl mx-auto">
-            Todos os planos incluem implementação, treinamento e suporte.
-            Descontos exclusivos para associados.
+          <p className="text-primary-foreground/70 max-w-xl mx-auto text-lg">
+            Todos os planos incluem treinamento e suporte.
+            Descontos e isenção de setup exclusivos para associados.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -82,64 +76,64 @@ const Pricing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className={`relative rounded-2xl p-6 lg:p-8 flex flex-col ${
-                plan.popular
-                  ? "bg-primary-foreground border-2 border-accent shadow-2xl scale-105"
-                  : "bg-primary-foreground/10 border border-primary-foreground/15"
-              }`}
+              className={`relative rounded-3xl p-8 flex flex-col transition-transform hover:-translate-y-2 ${plan.popular
+                  ? "bg-primary-foreground border-2 border-accent shadow-2xl z-10 scale-105 lg:scale-110"
+                  : "bg-primary-foreground/10 border border-primary-foreground/15 backdrop-blur-sm hover:bg-primary-foreground/15"
+                }`}
             >
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="gradient-cta text-accent-foreground text-xs font-bold px-4 py-1.5 rounded-full flex items-center gap-1">
-                    <Star className="w-3 h-3" />
-                    Mais Popular
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-full text-center">
+                  <span className="gradient-cta text-accent-foreground text-sm font-bold px-6 py-2 rounded-full inline-flex items-center gap-2 shadow-lg">
+                    <Star className="w-4 h-4 fill-current" />
+                    Melhor Escolha APRA
                   </span>
                 </div>
               )}
 
               <h3
-                className={`font-heading font-bold text-xl mb-2 ${
-                  plan.popular ? "text-foreground" : "text-primary-foreground"
-                }`}
+                className={`font-heading font-bold text-2xl mb-2 ${plan.popular ? "text-foreground" : "text-primary-foreground"
+                  }`}
               >
                 {plan.name}
               </h3>
 
-              <div className="mb-6">
+              {/* Ajuste aqui: Flexbox com items-baseline para alinhar na mesma linha */}
+              <div className="mb-8 flex items-baseline gap-1">
                 <span
-                  className={`text-3xl font-heading font-extrabold ${
-                    plan.popular ? "text-primary" : "text-primary-foreground"
-                  }`}
+                  className={`text-4xl font-heading font-extrabold ${plan.popular ? "text-primary" : "text-primary-foreground"
+                    }`}
                 >
                   {plan.price}
                 </span>
                 {plan.period && (
                   <span
-                    className={`text-sm ${
-                      plan.popular
+                    className={`text-sm font-medium ${plan.popular
                         ? "text-muted-foreground"
                         : "text-primary-foreground/60"
-                    }`}
+                      }`}
                   >
                     {plan.period}
                   </span>
                 )}
               </div>
 
-              <ul className="space-y-3 mb-8 flex-1">
+              <ul className="space-y-4 mb-8 flex-1">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2">
-                    <Check
-                      className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
-                        plan.popular ? "text-primary" : "text-accent"
-                      }`}
-                    />
+                  <li key={feature} className="flex items-start gap-3">
+                    <div
+                      className={`mt-1 rounded-full p-0.5 ${plan.popular ? "bg-primary/10" : "bg-accent/20"
+                        }`}
+                    >
+                      <Check
+                        className={`w-3.5 h-3.5 ${plan.popular ? "text-primary" : "text-accent"
+                          }`}
+                      />
+                    </div>
                     <span
-                      className={`text-sm ${
-                        plan.popular
-                          ? "text-foreground"
+                      className={`text-sm font-medium ${plan.popular
+                          ? "text-foreground/80"
                           : "text-primary-foreground/80"
-                      }`}
+                        }`}
                     >
                       {feature}
                     </span>
@@ -149,11 +143,10 @@ const Pricing = () => {
 
               <a
                 href="#fechamento"
-                className={`block text-center py-3 rounded-lg font-bold text-sm transition-opacity hover:opacity-90 ${
-                  plan.popular
-                    ? "gradient-cta text-accent-foreground"
-                    : "border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/5"
-                }`}
+                className={`block text-center py-4 rounded-xl font-bold text-sm transition-all shadow-md ${plan.popular
+                    ? "gradient-cta text-accent-foreground hover:shadow-lg hover:opacity-95"
+                    : "border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+                  }`}
               >
                 {plan.cta}
               </a>

@@ -78,7 +78,7 @@ const Features = () => {
             <br />
             para funcionar remotamente
           </h2>
-          <p className="text-primary-foreground/60 text-sm">
+          <p className="text-primary-foreground/60 text-xl">
             Segurança, evidência e auditoria, tudo no mesmo fluxo.
           </p>
         </motion.div>
